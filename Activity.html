@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        div {
+            background-color: #0fafbd;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, select, button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 89%;
+            border: 1px solid #0c6598;
+            border-radius: 5px; 
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Simple Calculator</h1>
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+        <select id="operation">
+            <option value="add">Add</option>
+            <option value="subtract">Subtract</option>
+            <option value="multiply">Multiply</option>
+            <option value="divide">Divide</option>
+        </select>
+        <button onclick="calculate()">Calculate</button>
+        <div id="result">Result:</div>
+    </script>
+    <script>
+        function calculate() {
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+            let operation = document.getElementById("operation").value;
+         
+            
+            let result;
+            if (operation === "add") {
+                result = num1 + num2;
+            } else if (operation === "subtract") {
+                result = num1 - num2;
+            } else if (operation === "multiply") {
+                result = num1 * num2;
+            } else if (operation === "divide") {
+                if (num2 === 0) {
+                    document.getElementById("result").innerText = "Cannot divide by zero!";
+                    return;
+                }
+                result = num1 / num2;
+            }
+            document.getElementById("result").innerText = "Result: " + result;
+        }
+    </script>
+    </div>
+</body>
+</html>
